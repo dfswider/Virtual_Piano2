@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Virtual Piano</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="white-keys">
+        <kbd class="white-key">A</kbd>
+        <kbd class="white-key">S</kbd>
+        <kbd class="white-key">D</kbd>
+        <kbd class="white-key">F</kbd>
+        <kbd class="white-key">G</kbd>
+        <kbd class="white-key">H</kbd>
+        <kbd class="white-key">J</kbd>
+    </div>
+    <div class="black-keys">
+        <kbd class="black-key">W</kbd>
+        <kbd class="black-key">E</kbd>
+        <kbd class="black-key">T</kbd>
+        <kbd class="black-key">Y</kbd>
+        <kbd class="black-key">U</kbd>
+    </div>
+</body>
+<script>
+    let k= null;
+    document.addEventListener( "keydown", function(event){
+        if (event.code === "KeyA" || event.code === "KeyS" || event.code === "KeyD" || event.code === "KeyF" ||
+            event.code === "KeyG" || event.code === "KeyH" || event.code === "KeyJ" ||
+            event.code === "KeyW" || event.code === "KeyE" || event.code === "KeyT" ||
+            event.code === "KeyY" || event.code === "KeyU"
+        ) {
+            console.log("The \'" + event.key + "\' key is pressed.");
+            //k.stop();
+            switch( event.code ){
+                case "KeyA": k = new Audio( "white_keys/A.mp3" ); break;
+                case "KeyS": k = new Audio( "white_keys/S.mp3" ); break;
+                case "KeyD": k = new Audio( "white_keys/D.mp3" ); break;
+                case "KeyF": k = new Audio( "white_keys/F.mp3" ); break;
+                case "KeyG": k = new Audio( "white_keys/G.mp3" ); break;
+                case "KeyH": k = new Audio( "white_keys/H.mp3" ); break;
+                case "KeyJ": k = new Audio( "white_keys/J.mp3" ); break;
+                case "KeyW": k = new Audio( "black_keys/W.mp3" ); break;
+                case "KeyE": k = new Audio( "black_keys/E.mp3" ); break;
+                case "KeyT": k = new Audio( "black_keys/T.mp3" ); break;
+                case "KeyY": k = new Audio( "black_keys/Y.mp3" ); break;
+                case "KeyU": k = new Audio( "black_keys/U.mp3" ); break
+            }
+            k.play();
+        } else {
+            console.log("Warning: wrong key!");
+        }
+    });
+</script>
+</html>
